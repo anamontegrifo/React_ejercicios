@@ -76,3 +76,11 @@ input {
   border-radius: 5px;
   color: white
 }
+.connected {
+  color: rgb(12, 177, 26);
+  font-weight: bold;
+}
+.disconnected {
+  color: grey;
+  font-weight: bold;
+}

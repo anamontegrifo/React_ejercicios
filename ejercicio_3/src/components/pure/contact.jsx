@@ -55,7 +55,7 @@ const ContactComponent = (props) => {
       <p>Apellido: {props.item.surname}</p>
       <p>Email: {props.item.email}</p>
       <p>Teléfono: {props.item.phone}</p>
-      <p>{props.item.connected ? "Conectado" : "Desconectado"}</p>
+      <p className={props.item.connected ? "connected": "disconnected"}>{props.item.connected ? "Conectado" : "Desconectado"}</p>
       {ConnectIcon()}
     </li>
   );
