@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Contact } from "../../models/contact.class";
 
 const Form = (props) => {
-  const nameRef = useRef("");
+  let nameRef = useRef("");
   const surnameRef = useRef("");
   const emailRef = useRef("");
   const phoneRef = useRef("");
@@ -18,7 +18,10 @@ const Form = (props) => {
       false
     );
     props.add(newContact);
-
+    nameRef.current.value = "";
+    surnameRef.current.value = "";
+    emailRef.current.value = "";
+    phoneRef.current.value = "";
   };
 
   return (
@@ -26,18 +29,49 @@ const Form = (props) => {
       <h2>Añadir nuevo contacto</h2>
       <form onSubmit={handleSubmit} className="contactForm" ref={formRef}>
         <label htmlFor="name">
-          Nombre: <input type="text" name="name" id="name" size="20px" ref={nameRef} required></input>
+          Nombre:{" "}
+          <input
+            type="text"
+            name="name"
+            id="name"
+            size="20px"
+            ref={nameRef}
+            required
+          ></input>
         </label>
         <label htmlFor="surname">
-          Apellido: <input type="text" name="surname" id="surname" ref={surnameRef} required></input>
+          Apellido:{" "}
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            ref={surnameRef}
+            required
+          ></input>
         </label>
         <label htmlFor="email">
-          Email: <input type="email" name="email" id="email" ref={emailRef} required></input>
+          Email:{" "}
+          <input
+            type="email"
+            name="email"
+            id="email"
+            ref={emailRef}
+            required
+          ></input>
         </label>
         <label htmlFor="phone">
-          Teléfono: <input type="tel" name="phone" id="phone" ref={phoneRef} required></input>
+          Teléfono:{" "}
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            ref={phoneRef}
+            required
+          ></input>
         </label>
-        <button type="submit" className="formButton" value="newContact">Añadir contacto</button>
+        <button type="submit" className="formButton" value="newContact">
+          Añadir contacto
+        </button>
       </form>
     </div>
   );
